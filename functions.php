@@ -1,10 +1,16 @@
 <?php
 
-//Chamar a tag Title
-function bs4wp_title_tag() {
+//Chamar a tag Title e add os formatos de postsi
+function bs4wp_theme_support() {
+    
+    //Chamar a tag Title
     add_theme_support("title-tag");
+
+    //
+    add_theme_support('post-formats', array('aside', 'image'));
 }
-add_action("after_setup_theme", "bs4wp_title_tag");
+
+add_action("after_setup_theme", "bs4wp_theme_support");
 
 //Previne erro na tag title em versões antigas
 if(!function_exists('_wp_render_title_tag')) {
@@ -52,6 +58,19 @@ register_sidebar(
         'before_title'  => '<h5 class="card-header">',
         'after_title'   => '</h5><div class="card-body">'
 ));
+
+// Criar a Campo de Busca
+register_sidebar(
+    array(
+        'name' => "Busca",
+        'id' => 'busca',
+        'before_widget' => '<div class="blog-search">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h5>',
+        'after_title'   => '</h5>'
+));
+
+
 // Ativar o formulário para respostas nos comentários
 function theme_queue_js() {
     if ( (!is_admin()) && is_singular() && comments_open() && get_option('thread_comments') ) wp_enqueue_script('comment-reply'); 
@@ -87,5 +106,8 @@ function format_comment($comment, $args, $depth) {
         </div>
     <?php
 }
+
+// incluir as funções de personalização 
+ require get_template_directory(). '/inc/customize.php'
 
 ?>
