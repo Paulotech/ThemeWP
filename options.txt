@@ -10,3 +10,4 @@ Performance Tweaks FSCache: Enabled
 Use Credential Manager: Enabled
 Enable Symlinks: Enabled
 Enable Builtin Interactive Add: Disabled
+adfasdfa
