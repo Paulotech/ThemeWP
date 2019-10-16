@@ -1,6 +1,5 @@
 <?php 
     function bs4wp_customize_register($wp_customize) {
-
         // Rodapé
         $wp_customize -> add_section('footer', array(
             'title' => __('Rodapé', 'BS 4 + WP'),

@@ -2,8 +2,8 @@
         <div class="container">
             <div class="row">
                 <div class="col py-5 text-center text-white">
-                    <h5>Meu primeiro tema de Wordpress</h5>
-                    <p class="mb-0">Feito por mim com muita dedicação e esforço.</p>
+                    <h5><?php echo get_theme_mod('footer_title', 'Template Bootstrap 4 e Wordpress'); ?></h5>
+                    <p class="mb-0"><?php echo get_theme_mod('footer_text', 'By @Deletking'); ?></p>
                 </div>
             </div>
         </div>
