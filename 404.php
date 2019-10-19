@@ -3,10 +3,11 @@
 
             <div class="col-sm-12 col-md-8">
 
-                <h3>Página não encontrada!</h3>
+                <h3 class="mb-3">Página não encontrada!</h3>
 
                 <p>O caminho para o conteúdo que você deseja acessar está errado ou a página pode tersido excluida.</p>
-
+                
+                <p>Esperimente realizar uma busca para encontrar o conteúdo que você deseja.</p>
             </div>
             
            <?php get_sidebar(); ?>

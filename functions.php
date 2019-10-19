@@ -6,8 +6,10 @@ function bs4wp_theme_support() {
     //Chamar a tag Title
     add_theme_support("title-tag");
 
-    //
+    // Adiciona formatos de posts 
     add_theme_support('post-formats', array('aside', 'image'));
+    // Adiciionar logotipo
+    add_theme_support( 'custom-logo' );
 }
 
 add_action("after_setup_theme", "bs4wp_theme_support");
@@ -106,6 +108,30 @@ function format_comment($comment, $args, $depth) {
         </div>
     <?php
 }
+
+
+//Criar o tipo de post para o banner
+function create_post_type() {
+
+    register_post_type('banners',
+    // Definir opções
+        array(
+            'labels' => array(
+                'name' => __('Banners'),
+                'Singular_name' => __('Banners')
+            ),
+            'supports' => array(
+                'title', 'editor', 'thumbnail' 
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'menu_icon' => 'dashicons-images-alt2',
+            'rewrite' => array('slug' => 'banners'),
+        ) 
+    );
+}
+//Iniciar o banner
+add_action('init', 'create_post_type');
 
 // incluir as funções de personalização 
  require get_template_directory(). '/inc/customize.php'
